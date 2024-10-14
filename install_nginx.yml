@@ -1,0 +1,16 @@
+---
+- name: Install Nginx on remote server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
