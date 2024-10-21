@@ -1,0 +1,10 @@
+---
+- name: Create ansible-api directory in /opt
+  hosts: all
+  become: yes   # 需要sudo权限
+  tasks:
+    - name: Ensure /opt/ansible-api directory exists
+      file:
+        path: /opt/ansible-api
+        state: directory
+        mode: '0755'
